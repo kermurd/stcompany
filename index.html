@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TIS.Edu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="/company/img/favicon-color.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+  <style>
+      
+      .navbar{  
+        background-color: white;
+        opacity: 0.9;
+      }
+    
+      #nav-a{        
+        display:flex;
+        height: 100%;
+        
+      }
+      #myNavbar{
+        padding: 12px;
+        text-align: right;
+        font-size:20px;
+       
+      }
+      #nav-button{
+       top:11px ;
+      }
+      .container{
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+      }
+      #map{
+        padding-top:80px;
+        padding-bottom:80px;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      h1{font-family: 'Noto Sans KR', sans-serif;}
+
+      .subject {
+        border: 10px solid rgb(185, 185, 185);
+        margin-bottom: 25px;
+        width: 60%;
+        height: 60%;
+        opacity: 0.7;
+        padding:30px;
+        transition: 1s;
+      }
+      .subject:hover {
+            border-color: black;
+      }
+
+      .carousel-inner img {        
+        width: 100%; 
+        height: 900px !important;
+        margin: auto;        
+       }
+
+        .carousel-caption h3 {
+        color: #fff !important;
+        }
+
+        #collapse-map{
+          display: inline-block;
+          padding: 15px 30px;
+          border:2px solid #111;
+          text-transform: uppercase;
+          text-decoration: none;
+          z-index: 3;
+          
+        }
+       
+        #collapse-map:before{
+          content: '';
+          position: absolute;
+          top: -6px;
+          left: -2px;
+          width: calc(100% + 4px);
+          height: calc(100% + 12px);
+          background-color: white;
+          z-index: -1;
+          transition: 0.5s ease-in-out;
+          transform: scaleY(1);
+        }
+        #collapse-map:hover::before{
+          transform: scaleY(0);
+          background-color: white;
+        }
+
+        #collapse-about{
+          display: inline-block;
+          padding: 15px 30px;
+          border:2px solid #111;
+          text-transform: uppercase;
+          text-decoration: none;
+          z-index: 3;
+         
+          
+        }
+       
+        #collapse-about:before{
+          content: '';
+          position: absolute;
+          top: -6px;
+          left: -2px;
+          width: calc(100% + 4px);
+          height: calc(100% + 12px);
+          background-color: white;
+          z-index: -1;
+          transition: 0.5s ease-in-out;
+          transform: scaleY(1);
+        }
+        #collapse-about:hover::before{
+          transform: scaleY(0);
+        }
+        
+        #collapse-board{
+          display: inline-block;
+          padding: 15px 30px;
+          border:2px solid #111;
+          text-transform: uppercase;
+          text-decoration: none;
+          z-index: 3;
+          
+        }
+       
+        #collapse-board:before{
+          content: '';
+          position: absolute;
+          top: -6px;
+          left: -2px;
+          bottom:-2px;
+          width: calc(100% + 4px);
+          height: calc(100% + 12px);
+          background-color: white;
+          z-index: -1;
+          transition: 0.5s ease-in-out;
+          transform: scaleY(1);
+        }
+        #collapse-board:hover::before{
+          transform: scaleY(0);
+        }
+
+
+        
+        #collapse-curriculumn{
+          display: inline-block;
+          padding: 15px 30px;
+          border:2px solid #111;
+          text-transform: uppercase;
+          text-decoration: none;
+          z-index: 3;
+          
+        }
+       
+        #collapse-curriculumn:before{
+          content: '';
+          position: absolute;
+          top: -6px;
+          left: -2px;
+          width: calc(100% + 4px);
+          height: calc(100% + 12px);
+          background-color: white;
+          z-index: -1;
+          transition: 0.5s ease-in-out;
+          transform: scaleY(1);
+        }
+        #collapse-curriculumn:hover::before{
+          transform: scaleY(0);
+        }
+
+
+
+        footer {
+          background-color: #2d2d30;
+          color: #f5f5f5;
+          padding: 32px;
+          
+        }
+
+
+        footer a {
+          color: #f5f5f5;
+        }
+
+        footer a:hover {
+          color: #777;
+          text-decoration: none;
+        }
+  
+        .glyphicon{
+        font-size: 30px;
+          
+        }
+        #address{
+          position: relative;
+          display: inline-flex;
+          font-size: 12px;
+          text-align: center;
+          
+
+        }
+        #fl{
+          padding-top: 20px;
+        }
+ 
+        @media (max-width: 767px) {
+            .carousel-caption {
+              display: none; 
+                           
+            }
+            #curriculumn .col-sm-4{                
+              margin-top: 50px !important;
+              padding-left: 70px !important;
+              padding-right: 70px !important;              
+            }
+            #collapse-about,
+            #collapse-map,
+            #collapse-board,
+            #collapse-curriculumn{
+              border:0;
+            }
+            #fl{
+              display: none;
+            }
+        }  
+        #myNavbar{
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+        #about>p{
+          padding-top: 10px;
+          font-size: 22px
+        }
+        #curriculumn{
+          cursor: pointer;
+        }
+      
+  </style>
+
+  <script type="text/javascript">
+    // iframe resize
+    function autoResize(i)
+    {
+        (i).height=0;
+        var iframeHeight=
+        (i).contentWindow.document.body.scrollHeight;
+        (i).height=iframeHeight+20;
+    }
+  </script>
+  <script class="nav-panal">
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+});
+  </script>
+
+<script>
+  $(document).ready(function(){
+
+    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;  
+      
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+        window.location.hash = hash;
+        });
+      } 
+    });
+  })
+  </script>
+
+</head>
+<body id="myPage">
+  <!-- 네비게이션 ------------------------------------------------------------------>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button id="nav-button" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a id="nav-a"class="navbar-brand" href="#myPage">
+              <IMG src="/company/img/TIS_LOGO.jpg"/>
+             </a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a id="collapse-about" href="#about" data-toggle="collapse" data-target=".navbar-collapse.in">About</a></li>
+              <li><a id="collapse-curriculumn" href="#curriculumn" data-toggle="collapse" data-target=".navbar-collapse.in">Curriculumn</a></li>
+              <li><a id="collapse-map" href="#map" data-toggle="collapse" data-target=".navbar-collapse.in">Map</a></li>
+              <li><a id="collapse-board" href="#board" data-toggle="collapse" data-target=".navbar-collapse.in">Board</a></li>              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- 네비게이션 -->
+
+    <!-- 캐러셀 ---------------------------------------------------------------------->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="img/pic01.png" alt="Android">
+            <div class="carousel-caption">
+              <h3>Android</h3>
+              <p>Android Native App Development</p>
+            </div>
+          </div>
+      
+          <div class="item">
+            <img src="img/pic02.jpg" alt="Big Data">
+            <div class="carousel-caption">
+              <h3>Big Data</h3>
+              <p>Big Data - Hadoop, R, Python</p>
+            </div>
+          </div>
+      
+          <div class="item">
+            <img src="img/pic03.jpg" alt="AI">
+            <div class="carousel-caption">
+              <h3>AI</h3>
+              <p>AI - Scikit-Learn, PyTorch</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="img/pic04.jpg" alt="Web Programming">
+            <div class="carousel-caption">
+              <h3>Web Programming</h3>
+              <p>Front End, Back End Programming</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="img/pic05.jpg" alt="JAVA">
+            <div class="carousel-caption">
+              <h3>JAVA</h3>
+              <p>JAVA - Object Oriented Language</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    <!-- 캐러셀 -->
+
+    <div id="about" class="container text-center">
+        <h1>TIS 정보기술 교육센터</h1>        
+        <p>- 정부지원 IT전문 교육기관</p>
+        <p>최신 IT기술 트렌드를 접목한 실무 중심의 교육으로 <br>
+            대한민국 4차산업혁명시대의 미래를 열어가겠습니다.
+        </p>
+    </div>
+
+    <div id="curriculumn" class="container text-center">
+        <h1>교육과목</h1>        
+        <p>- 국가기반기술 IT전문교육</p>
+        <br>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <p><strong>Java</strong></p><br>
+            <img class="img-circle subject" src="img/Java.png" alt="Java" width="255" height="255">
+        </div>
+            <div class="col-sm-4">
+                <p><strong>HTML5</strong></p><br>
+                <img class="img-circle subject" src="img/html5.png" alt="html5" width="255" height="255">
+            </div>
+
+            <div class="col-sm-4">
+                <p><strong>CSS3</strong></p><br>
+                <img class="img-circle subject" src="img/css3.png" alt="css3" width="255" height="255">
+            </div>
+
+            <div class="col-sm-4">
+                <p><strong>Javascript</strong></p><br>
+                <img class="img-circle subject" src="img/javascript.png" alt="javascript" width="255" height="255">
+            </div>  
+
+            <div class="col-sm-4">
+              <p><strong>Python</strong></p><br>
+              
+              <img class="img-circle subject" src="img/python.png" alt="python" width="255" height="255">
+          </div>
+
+          <div class="col-sm-4">
+            <p><strong>jquery</strong></p><br>
+            <img class="img-circle subject" src="img/jquery.png" alt="jquery" width="255" height="255">
+        </div>  
+
+
+        </div>   
+<!------------------------------------------------------------------------------------------------------------------------------>
+        <div class="row">
+            
+            <div class="col-sm-4">
+                <p><strong>Android</strong></p><br>
+                <img class="img-circle subject" src="img/android.png" alt="android" width="255" height="255">
+            </div>
+
+            <div class="col-sm-4">
+                <p><strong>React</strong></p><br>
+                <img class="img-circle subject" src="img/react.png" alt="react" width="255" height="255">
+            </div>
+            
+            <div class="col-sm-4">
+              <p><strong>spring_boot</strong></p><br>
+              <img class="img-circle subject" src="img/spring_boot.png" alt="spring_boot" width="255" height="255">
+          </div> 
+
+          <div class="col-sm-4">
+            <p><strong>vue_js</strong></p><br>
+            <img class="img-circle subject" src="img/vue_js.png" alt="vue_js" width="255" height="255">
+        </div>
+        <div class="col-sm-4">
+          <p><strong>node_js</strong></p><br>
+          <img class="img-circle subject" src="img/node_js.png" alt="node_js" width="255" height="255">
+      </div>  
+     
+        </div> 
+
+            
+
+        
+        
+
+
+      
+
+    </div>
+
+     <!-- 카카오맵 ----------------------------------------------->
+     <div id="map" class="container-fluid">
+         <h1 class="text-center">오시는 길</h1>
+        <div id="kakaomap" style="width: 100%;height: 500px;"></div>
+     </div>
+     
+     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=79c0b34f291f673bbcb7a3326936e439"></script>
+     <script> 
+
+         var mapContainer = document.getElementById('kakaomap'), // 지도를 표시할 div 
+          mapOption = { 
+                 center: new daum.maps.LatLng(37.525229261856055, 126.89135012208651), // 지도의 중심좌표
+                 level: 3 // 지도의 확대 레벨
+             };
+
+         var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+         // 마커가 표시될 위치입니다 
+         var markerPosition  = new daum.maps.LatLng(37.525229261856055, 126.89135012208651); 
+
+         // 마커를 생성합니다
+         var marker = new daum.maps.Marker({
+             position: markerPosition
+         });
+
+         // 마커가 지도 위에 표시되도록 설정합니다
+         marker.setMap(map);
+
+     </script>
+
+     <!-- 카카오맵.끝.-->
+     
+
+    <!-- 게시판 ---------------------------------------------------------------------->    
+    <div class="container" id="board">
+      <h1 class="text-center">Q&A게시판</h1>
+      <iframe id="iframe1" src="http://jhm313.dothome.co.kr/g5/bbs/board.php?bo_table=board001" width="100%" onload="autoResize(this)" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+
+    <div class="container" id="board">
+      <h1 class="text-center">자유게시판</h1>
+      <iframe id="iframe1" src="http://jhm313.dothome.co.kr/g5/bbs/board.php?bo_table=board002" width="100%" onload="autoResize(this)" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+    <!-- 게시판 -->
+
+    <!-- footer ---------------------------------------------------------------------->
+    <footer id="footer-wrap"class="container-fluid text-center">
+      <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <div class="glyphicon glyphicon-arrow-up"></div>
+      </a><br><img id="fl"src="/company/img/tis_footer_logo.png">
+      <div id="address">
+      
+      <div>
+      
+        ㈜티아이에스정보시스템 | 티아이에스정보기술교육센터 | 대표이사: 김휘준 | 사업자등록번호: 113-86-70392 | 통신판매업신고: 
+        제2015-서울영등포-0490호
+
+        <br>
+        수강&입학문의 : 02-2069-1931 | 업무문의 : 02-2069-1930 | 팩스 : 02-2069-1932 | 
+        개인정보책임자 : 이형석
+        <br>
+        
+        (우: 70255) 서울특별시 영등포구 선유로 130 (지번 : 양평동 3가 5-4번지), 에이스하이테크시티3차 2층(교무실 
+        : 212호, 강의실: 202호, 210호, 211호) 
+        
+      </div>
+      
+  </div>
+  
+    </footer>
+    <!-- footer -->
+
+</body>
+</html>
